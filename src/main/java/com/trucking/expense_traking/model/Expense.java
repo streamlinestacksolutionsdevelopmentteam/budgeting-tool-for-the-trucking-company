@@ -1,75 +1,73 @@
 package com.trucking.expense_traking.model;
 
-
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-
+/***
+ * Entity class representing an Expense.
+ * This class is mapped to the "expenses" table in the database.
+ */
 @Entity
+@Table(name = "expenses") //*** Specifies the table name in the database ***
 public class Expense {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id //*** Indicates that this field is the primary key ***
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //*** Auto-generates the ID value ***
     private Long id;
 
-    private String category;
-    private Double amount;
-    private String description;
+    private String description; //*** Description of the expense ***
+    private Double amount; //*** Amount of the expense ***
 
-    @Column(name = "expense_date")
-    private LocalDate expenseDate;
-
+    /***
+     * Gets the ID of the expense.
+     *
+     * @return the ID of the expense.
+     */
     public Long getId() {
-        return id;
+        return id; //*** Returns the ID of the expense ***
     }
 
+    /***
+     * Sets the ID of the expense.
+     *
+     * @param id the ID to set.
+     */
     public void setId(Long id) {
-        this.id = id;
+        this.id = id; //*** Sets the ID of the expense ***
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public Double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
-
+    /***
+     * Gets the description of the expense.
+     *
+     * @return the description of the expense.
+     */
     public String getDescription() {
-        return description;
+        return description; //*** Returns the description of the expense ***
     }
 
+    /***
+     * Sets the description of the expense.
+     *
+     * @param description the description to set.
+     */
     public void setDescription(String description) {
-        this.description = description;
+        this.description = description; //*** Sets the description of the expense ***
     }
 
-    public LocalDate getExpenseDate() {
-        return expenseDate;
+    /***
+     * Gets the amount of the expense.
+     *
+     * @return the amount of the expense.
+     */
+    public Double getAmount() {
+        return amount; //*** Returns the amount of the expense ***
     }
 
-    public void setExpenseDate(LocalDate expenseDate) {
-        this.expenseDate = expenseDate;
+    /***
+     * Sets the amount of the expense.
+     *
+     * @param amount the amount to set.
+     */
+    public void setAmount(Double amount) {
+        this.amount = amount; //*** Sets the amount of the expense ***
     }
-
-    // Constructors, Getters, and Setters
-    public Expense() {
-    }
-
-    public Expense(String category, Double amount, String description, LocalDate expenseDate) {
-        this.category = category;
-        this.amount = amount;
-        this.description = description;
-        this.expenseDate = expenseDate;
-    }
-
-    // Getters and Setters
-    // ...
 }
